@@ -47,3 +47,37 @@
     border-radius: 0%;
     border: 1px solid black;
 }
+
+.rechercher:focus{
+    transition: 0.4s ease-in-out;
+    width: 400px;
+}
+
+.rechercher:not(:focus){
+    transition: 0.4s ease-in-out;
+    width: 300px;
+}
+
+.partieBasse{
+    padding-top: 200px;
+    margin: auto;
+    width: calc(100%/1.5);
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(201, 199, 199);
+}
+
+.catégorie{
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+}
+
+.boutonLogin{
+    width: 100px;
+    height: 32px;
+    border-radius: 0%;
+    border: 1px solid black;
+    margin-left: 25px;
+}
