@@ -66,6 +66,7 @@
     justify-content: space-between;
     padding-bottom: 20px;
     border-bottom: 1px solid rgb(201, 199, 199);
+    margin-bottom: 50px;
 }
 
 .catégorie{
@@ -80,4 +81,20 @@
     border-radius: 0%;
     border: 1px solid black;
     margin-left: 25px;
+}
+
+.textepartiebasse{
+    width: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+.titrepartiebasse{
+    font-size: 75px;
+    margin-bottom: 20px;
+}
+
+.soustextepartiebasse{
+    font-size: 25px;
+    margin-bottom: 20px;
 }
