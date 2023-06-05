@@ -43,4 +43,19 @@
     </div>
 </body>
 <script src="../../BACKEND/js/main.js"></script>
+<script>
+    fetch('/data')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('container');
+            data.forEach(item => {
+                const p = document.createElement('p');
+                p.textContent = `ID: ${item.id}, Name: ${item.name}`;
+                container.appendChild(p);
+            });
+        })
+        .catch(error => console.error(error));
+</script>
+<!-- ... -->
+
 </html>

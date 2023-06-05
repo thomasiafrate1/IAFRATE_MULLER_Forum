@@ -1,0 +1,39 @@
+
+
+.navbar{
+    justify-content: space-between;
+    display: flex;
+    height: 70px;
+    
+}
+
+.navDroite{
+    display: flex;
+    margin: 45px;
+    width: 200px;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+
+
+.logoNavBar{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: auto;
+    background-color: rgb(255, 177, 125);
+    height: 40px;
+    font-size: 30px;
+}
+
+.logoNavBar:hover{
+    background-color: rgb(41, 41, 41);
+    color: rgb(255, 177, 125);
+    transition: 0.3s;
+}
+
+.logoNavBar:not(:hover) {
+    transition: 0.3s;
+}
