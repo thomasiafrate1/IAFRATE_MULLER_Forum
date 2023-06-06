@@ -1,0 +1,25 @@
+{{define "discussion"}}
+<div class="textepartiebasse">
+    <h1 class="titrepartiebasse">Trouvez votre envie.</h1>
+    <p class="soustextepartiebasse">Explorez le forum ci-dessous et trouvez des réponses à toutes vos questions.</p>
+</div>
+<div class="post">
+    <button id='btn'>Créer une discussion</button>
+    <div id='container'></div>
+</div>
+<div id="popup">
+    <div id="popupContenu">
+        <div class="left">
+            <label for="title" class="TitreForum">Titre du forum:</label><br>
+            <input type="text" id="title" name="title" class="InputForum"><br>
+            <label for="img" class="ImgForum">Image:</label><br>
+            <input type="file" id="img" name="img" accept="image/*"><br>
+            <button id="create-box">Créer</button>
+            <button id="close-popup">Fermer</button>
+        </div>
+        <div class="right">
+            <img id="preview" />
+        </div>
+    </div>
+</div>
+{{end}}
