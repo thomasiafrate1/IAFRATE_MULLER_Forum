@@ -11,17 +11,17 @@
 <body>
 
     <video id="background-video" autoplay loop muted>
-
         <source src="../assets/video/traphub2- Trim.mp4" type="video/mp4">
-        
     </video>
 
-    <div class="vatefaireenculernemo">
-        <h1 class="titre">TrapHub</h1>
-        <p class="titredessous">Vivez la musique, créez des souvenirs.</p>
-        <div class="boutons">
-            <button id="boutonSeConnecter">Se connecter</button>
-            <button id="boutonSinscrire">S'inscrire</button>
+    <div id="wsh">
+        <div class="vatefaireenculernemo">
+            <h1 class="titre">TrapHub</h1>
+            <p class="titredessous">Vivez la musique, créez des souvenirs.</p>
+            <div class="boutons">
+                <button id="boutonSeConnecter">Se connecter</button>
+                <button id="boutonSinscrire">S'inscrire</button>
+            </div>
         </div>
     </div>
 
@@ -29,19 +29,19 @@
         <button id="boutonFermer">X</button>
         <h1 class="titreConnexion">TrapHub</h1>
         <div class="lesInputs">
-            <input type="text" class="inputConnexionUsername" placeholder="Username">
-            <input type="text" class="inputConnexionMDP" placeholder="Password">
+            <input type="text" class="inputConnexionUsername" placeholder="Username" autocomplete="off">
+            <input type="text" class="inputConnexionMDP" placeholder="Password" autocomplete="off">
         </div>
         <button class="boutonConnexion">Se Connecter</button>
     </div>
 
     <div id="popupSinscrire">
-        <button id="boutonFermer">X</button>
+        <button id="boutonFermer2">X</button>
         <h1 class="titreConnexion">TrapHub</h1>
         <div class="lesInputsInscription">
-            <input type="text" class="inputInscriptionUsername" placeholder="Username">
-            <input type="text" class="inputInscriptionMDP" placeholder="Password">
-            <input type="text" class="inputInscriptionEmail" placeholder="E-mail">
+            <input type="text" class="inputInscriptionUsername" placeholder="Username" autocomplete="off" >
+            <input type="text" class="inputInscriptionMDP" placeholder="Password" autocomplete="off" >
+            <input type="email" class="inputInscriptionEmail" placeholder="E-mail" autocomplete="off" >
         </div>
         <button class="boutonInscription">S'inscrire</button>
     </div>
