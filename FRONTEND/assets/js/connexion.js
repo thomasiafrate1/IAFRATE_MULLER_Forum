@@ -43,12 +43,10 @@ document.querySelector('.boutonInscription').addEventListener('click', function(
     var input2 = document.querySelector('.inputInscriptionMDP').value;
     var input3 = document.querySelector('.inputInscriptionEmail').value;
   
-    // Vérifie si les champs d'entrée sont vides
     if(input1 === '' || input2 === '' || input3 === '') {
       alert('Veuillez remplir tous les champs.');
-      event.preventDefault(); // Annule l'action par défaut du bouton
+      event.preventDefault();
     } else {
-      // Si tous les champs sont remplis, redirige vers une nouvelle page
-      window.location.href = '../html/accueil.html';
+      window.location.href = '/accueil';
     }
 });

@@ -202,3 +202,15 @@
     font-size: 30px;
     margin-bottom: 20px;
 }
+
+#imgParcourir{
+    margin: auto;
+    display: block;
+    font-size: 15px;
+
+}
+
+
+.box{
+    cursor: pointer;
+}
