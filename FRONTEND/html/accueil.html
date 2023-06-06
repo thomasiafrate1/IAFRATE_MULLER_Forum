@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/accueil.css">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="../assets/css/accueil.css">
 </head>
 <body>
+
+
     <div class="navbar">
 
         <div class="navGauche">
@@ -55,8 +57,11 @@
             </div>
         </div>
     </div>
+
+
+
 </body>
-<script src="../../BACKEND/js/main.js"></script>
+<script src="../assets/js/main.js"></script>
 <script>
     fetch('/data')
         .then(response => response.json())
@@ -70,6 +75,4 @@
         })
         .catch(error => console.error(error));
 </script>
-<!-- ... -->
-
 </html>

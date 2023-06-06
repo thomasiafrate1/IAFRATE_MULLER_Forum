@@ -5,21 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/forum.css">
+    <link rel="stylesheet" href="../assets/css/forum.css">
+    <link rel="stylesheet" href="../assets/css/connexion.css">
 </head>
 <body>
 
     <video id="background-video" autoplay loop muted>
 
-        <source src="../assets/video/traphub2- Trim.mp4 Trim.mp4" type="video/mp4">
+        <source src="../assets/video/traphub2- Trim.mp4" type="video/mp4">
         
     </video>
 
     <div class="vatefaireenculernemo">
         <h1 class="titre">TrapHub</h1>
-        <p class="titredessous"> Online mes couillasse</p>
-        <a href="accueil.html"><button >Aller sur le forum</button></a>
-    
+        <p class="titredessous">Vivez la musique, créez des souvenirs.</p>
+        <div class="boutons">
+            <button id="boutonSeConnecter">Se connecter</button>
+            <button id="boutonSinscrire">S'inscrire</button>
+        </div>
     </div>
+
+    <div id="popupSeConnecter">
+        <button id="boutonFermer">X</button>
+        <h1 class="titreConnexion">TrapHub</h1>
+        <div class="lesInputs">
+            <input type="text" class="inputConnexionUsername" placeholder="Username">
+            <input type="text" class="inputConnexionMDP" placeholder="Password">
+        </div>
+        <button class="boutonConnexion">Se Connecter</button>
+    </div>
+
+    <div id="popupSinscrire">
+        <button id="boutonFermer">X</button>
+        <h1 class="titreConnexion">TrapHub</h1>
+        <div class="lesInputsInscription">
+            <input type="text" class="inputInscriptionUsername" placeholder="Username">
+            <input type="text" class="inputInscriptionMDP" placeholder="Password">
+            <input type="text" class="inputInscriptionEmail" placeholder="E-mail">
+        </div>
+        <button class="boutonInscription">S'inscrire</button>
+    </div>
+
+
 </body>
+<script src="../assets/js/connexion.js"></script>
 </html>
