@@ -23,7 +23,7 @@ body{
     flex-direction: column;
     align-items: center;
    margin: auto;
-   margin-left: 50px;
+   padding-top: 150px;
 }
 
 .inputConnexionUsername{
@@ -64,10 +64,21 @@ body{
     margin-top: 80px;
     margin-left: 98px;
     position: absolute;
-    margin-top: 400px;
+
 }
 
 #boutonFermer{
+    position: absolute;
+    margin-left: 353px;
+    margin-top: 7px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    font-size: 20px;
+    
+}
+
+#boutonFermer2{
     position: absolute;
     margin-left: 353px;
     margin-top: 7px;
@@ -99,7 +110,7 @@ body{
     flex-direction: column;
     align-items: center;
     margin: auto;
-    margin-left: 50px;
+    padding-top: 120px;
 }
 
 .inputInscriptionUsername{
@@ -135,8 +146,8 @@ body{
     height: 54px;
     width: 204px;
     font-size: 20px;
-    margin-top: 80px;
+    margin-top: 40px;
     margin-left: 98px;
     position: absolute;
-    margin-top: 400px;
+    
 }
