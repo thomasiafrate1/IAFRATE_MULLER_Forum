@@ -29,10 +29,16 @@
         <button id="boutonFermer">X</button>
         <h1 class="titreConnexion">TrapHub</h1>
         <div class="lesInputs">
-            <input type="text" class="inputConnexionUsername" placeholder="Username" autocomplete="off">
-            <input type="text" class="inputConnexionMDP" placeholder="Password" autocomplete="off">
+            <form action="/" method="POST">
+                <label for="username">Nom d'utilisateur:</label>
+                <input type="text" id="username" name="username" required>
+        
+                <label for="password">Mot de passe:</label>
+                <input type="password" id="password" name="password" required>
+        
+                <button type="submit">Connexion</button>
+            </form>
         </div>
-        <button class="boutonConnexion">Se Connecter</button>
     </div>
 
     <div id="popupSinscrire">
@@ -48,5 +54,5 @@
 
 
 </body>
-<script src="../assets/js/connexion.js"></script>
+    <script src="../assets/js/connexion.js"></script>
 </html>
