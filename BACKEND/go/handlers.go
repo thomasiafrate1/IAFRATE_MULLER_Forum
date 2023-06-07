@@ -23,7 +23,7 @@ func main() {
 }
 
 func forumHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, _ := template.ParseFiles("../../FRONTEND/html/forum.html")
+	tmpl, _ := template.ParseFiles("../../FRONTEND/html/index.html")
 	tmpl.Execute(w, nil)
 }
 

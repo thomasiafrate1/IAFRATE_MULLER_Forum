@@ -286,20 +286,87 @@
     margin: auto;
     align-items: center;
     text-align: center;
+    margin-bottom: 150px;
 }
 
 .touteCategorie{
     margin: auto;
     display: flex;
-    width: 850px;
+    width: 660px;
     flex-wrap: wrap;
 }
 
-.cat1, .cat2, .cat3, .cat4, .cat5, .cat6, .cat7, .cat8, .cat9, .cat10, {
+.touteCategorie h1{
+    margin: 15px;
+}
+
+.cat1, .cat2, .cat3, .cat4, .cat5, .cat6, .cat7, .cat8, .cat9, .cat10, .cat11, .cat12{
     width: 300px;
     margin: auto;
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
-    background-color: aqua;
+    height: 100px;
+    
 }
+
+.cat1{
+    background-image: url("../photo/Capybaras-fiche.jpg");
+    margin: 15px;
+}
+
+.cat2{
+    background-image: url("../photo/Capybaras-fiche.jpg");
+    margin: 15px;
+}
+
+.cat3{
+    background-image: url("../photo/Capybaras-fiche.jpg");
+    margin: 15px;
+}
+
+.cat4{
+    background-image: url("../photo/Capybaras-fiche.jpg");
+    margin: 15px;
+}
+
+.cat5{
+    background-image: url("../photo/Capybaras-fiche.jpg");
+    margin: 15px;
+}
+
+.cat6{
+    background-image: url("../photo/Capybaras-fiche.jpg");
+    margin: 15px;
+}
+
+.cat7{
+    background-image: url("../photo/Capybaras-fiche.jpg");
+    margin: 15px;
+}
+
+.cat8{
+    background-image: url("../photo/Capybaras-fiche.jpg");
+    margin: 15px;
+}
+
+.cat9{
+    background-image: url("../photo/Capybaras-fiche.jpg");
+    margin: 15px;
+}
+
+.cat10{
+    background-image: url("../photo/Capybaras-fiche.jpg");
+    margin: 15px;
+}
+
+.cat11{
+    background-image: url("../photo/Capybaras-fiche.jpg");
+    margin: 15px;
+}
+
+.cat12{
+    background-image: url("../photo/Capybaras-fiche.jpg");
+    margin: 15px;
+}
+

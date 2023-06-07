@@ -1,0 +1,26 @@
+.portrait img{
+    width: 400px;
+}
+
+.portrait{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100%/1.5);
+    margin: auto;
+}
+
+.titreCreateurs{
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.portraitNemo{
+    text-align: center;
+}
+
+.portraitThomas{
+    text-align: center;
+}
