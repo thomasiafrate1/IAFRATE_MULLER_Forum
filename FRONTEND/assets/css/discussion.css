@@ -54,4 +54,21 @@
     height: 50px;
     resize: none; 
     font-size: 20px;
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+
+#submitMessageBtn{
+    width: 100px;
+    height: 52px;
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+
+.coucou{
+    display: flex;
+    justify-content: space-between;
+    width: calc(100%/1.4);
+    margin: auto;
+    margin-bottom: 100px;
 }

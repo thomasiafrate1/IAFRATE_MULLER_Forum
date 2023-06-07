@@ -214,3 +214,92 @@
 .box{
     cursor: pointer;
 }
+
+.chef{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#create-box{
+    width: 100px;
+    height: 80px;
+    background-color: black;
+    color: aliceblue;
+    font-size: 20px;
+
+}
+
+#close-popup{
+    width: 100px;
+    height: 80px;
+    background-color: black;
+    color: aliceblue;
+    font-size: 20px;
+}
+
+#close-popup:hover{
+    background-color: aliceblue;
+    color: black;
+    transition: 0.5s;
+}
+
+#create-box:hover {
+    background-color: aliceblue;
+    color: black;
+    transition: 0.5s;
+}
+
+#close-popup:not(:hover) {
+    transition: 0.5s;
+    
+}
+
+#create-box:not(:hover) {
+    transition: 0.5s;
+}
+
+
+
+
+/* PARTIE TRES IMPORTANTE*/
+
+#partieDiscussion{
+    display: none;
+}
+
+#partieCategorie{
+    display: block;
+}
+
+#partiePost{
+    display: none;
+}
+
+/*FIN PARTIE IMPORTANTE*/
+
+.textePartieCat{
+    width: 700px;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+}
+
+.touteCategorie{
+    margin: auto;
+    display: flex;
+    width: 850px;
+    flex-wrap: wrap;
+}
+
+.cat1, .cat2, .cat3, .cat4, .cat5, .cat6, .cat7, .cat8, .cat9, .cat10, {
+    width: 300px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    background-color: aqua;
+}
