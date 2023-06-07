@@ -3,7 +3,7 @@ var closePopup = document.getElementById('close-popup');
 var createBoxBtn = document.getElementById('create-box');
 var popup = document.getElementById('popup');
 var titleInput = document.getElementById('title');
-var imgInput = document.getElementById('img');
+var imgInput = document.getElementById('imgParcourir');
 var preview = document.getElementById('preview');
 var container = document.getElementById('container');
 
@@ -20,6 +20,9 @@ imgInput.addEventListener('change', function() {
 });
 
 createBoxBtn.addEventListener('click', function() {
+    var link = document.createElement('a');
+    link.href = '/discussion';
+
     var box = document.createElement('div');
     box.className = 'box';
 
@@ -31,6 +34,15 @@ createBoxBtn.addEventListener('click', function() {
     image.src = preview.src;
     box.appendChild(image);
 
-    container.appendChild(box);
+    link.appendChild(box);
+    container.appendChild(link);
+
     popup.style.display = "none";
 });
+
+
+box.addEventListener('click', function() {
+
+    window.location.href = "../../html/discussion.html";
+}   
+);
