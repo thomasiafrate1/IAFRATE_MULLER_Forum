@@ -1,6 +1,13 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
 .portrait img{
     width: 400px;
 }
+
+
 
 .portrait{
     display: flex;
@@ -23,4 +30,18 @@
 
 .portraitThomas{
     text-align: center;
+}
+
+.portrait p{
+    margin-top: 10px;
+    width: 400px;
+}
+
+.portrait p:hover{
+    color: rgb(187, 105, 51);
+    transition: 0.3s;
+}
+
+.portrait p:not(:hover){
+    transition: 0.3s;
 }

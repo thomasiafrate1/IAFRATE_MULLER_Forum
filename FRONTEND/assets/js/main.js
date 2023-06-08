@@ -6,6 +6,12 @@ var titleInput = document.getElementById('title');
 var imgInput = document.getElementById('imgParcourir');
 var preview = document.getElementById('preview');
 var container = document.getElementById('container');
+var BtnDiscussion = document.getElementById('discussionBtn');
+var BtnCategorie = document.getElementById('categorieBtn');
+var BtnPost = document.getElementById('postBtn');
+var PartieDiscussion = document.getElementById('partieDiscussion');
+var PartieCategorie = document.getElementById('partieCategorie');
+var PartiePost = document.getElementById('partiePost');
 
 btn.addEventListener('click', function() {
     popup.style.display = "block";
@@ -21,7 +27,7 @@ imgInput.addEventListener('change', function() {
 
 createBoxBtn.addEventListener('click', function() {
     var link = document.createElement('a');
-    link.href = '/discussion';
+    link.href = 'discussion.html';  /*changer ca pour le go*/
 
     var box = document.createElement('div');
     box.className = 'box';
@@ -38,11 +44,26 @@ createBoxBtn.addEventListener('click', function() {
     container.appendChild(link);
 
     popup.style.display = "none";
+
 });
 
 
-box.addEventListener('click', function() {
 
-    window.location.href = "../../html/discussion.html";
-}   
+BtnDiscussion.addEventListener('click', function() {
+    PartieDiscussion.style.display = "block";
+    PartieCategorie.style.display = "none";
+    PartiePost.style.display = "none";
+});
+
+BtnCategorie.addEventListener('click', function() {
+    PartieDiscussion.style.display = "none";
+    PartieCategorie.style.display = "block";
+    PartiePost.style.display = "none";
+});
+
+BtnPost.addEventListener('click', function() {
+    PartieDiscussion.style.display = "none";
+    PartieCategorie.style.display = "none";
+    PartiePost.style.display = "block";
+}
 );

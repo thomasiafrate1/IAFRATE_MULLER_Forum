@@ -3,10 +3,15 @@
     padding: 0;
 }
 
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
 .navbar{
     justify-content: space-between;
     display: flex;
     height: 70px;
+    background-color: white;
     
 }
 
@@ -101,15 +106,15 @@
 
 .box {
     width: 458px;
-    height: 200px;
+    height: 320px;
     border: 1px solid black;
     margin: 10px;
     padding: 10px;
 }
 .box img {
     margin: auto;
-    width: 430px;
-    height: auto;
+    width: 400px;
+    max-height: 243px;
 }
 
 #container{
@@ -168,12 +173,10 @@
 #popupContenu img {
     margin: auto;
     width: 400px;
-    max-width: 100%;
-    max-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: 400px;
+    max-height: 300px;
     height: auto;
+    margin-top: -250px;
 }
 
 .TitreForum{
@@ -213,8 +216,15 @@
 
 .box{
     cursor: pointer;
+    height: 320px;
 }
 
+
+.box img{
+    max-width: 430px;
+    max-height: 243px;
+    margin: 14px;
+}
 .chef{
     width: 300px;
     display: flex;
@@ -268,11 +278,11 @@
 /* PARTIE TRES IMPORTANTE*/
 
 #partieDiscussion{
-    display: none;
+    display: block;
 }
 
 #partieCategorie{
-    display: block;
+    display: none;
 }
 
 #partiePost{
@@ -370,3 +380,33 @@
     margin: 15px;
 }
 
+.textePartiePost{
+    width: 700px;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 150px;
+}
+
+
+
+#discussionBtn{
+    border: none;
+    background-color: #88888800;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+#categorieBtn{
+    border: none;
+    background-color: #88888800;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+#postBtn{
+    border: none;
+    background-color: #88888800;
+    font-size: 17px;
+    cursor: pointer;
+}
