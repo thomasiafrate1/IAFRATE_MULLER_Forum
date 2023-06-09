@@ -36,6 +36,15 @@ func main() {
 	http.HandleFunc("/login", loginHandler)
 	http.HandleFunc("/logout", logoutHandler)
 
+	css := http.FileServer(http.Dir("../../FRONTEND/assets"))
+	http.Handle("/assets/", http.StripPrefix("/assets/", css))
+
+	http.HandleFunc("/forum", forumHandler)
+	http.HandleFunc("/accueil.html", forumAccueil)
+	http.HandleFunc("/discussion.html", forumDiscussion)
+
+	// ...
+
 	fmt.Println("Serveur démarré sur http://localhost:8080")
 	http.ListenAndServe(":8080", nil)
 }
@@ -46,30 +55,18 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 	// Vérifier si l'utilisateur est connecté
 	userID := session.Values["userID"]
 	if userID != nil {
-		// L'utilisateur est connecté, afficher le contenu du forum pour l'utilisateur
-		user, err := getUserByID(userID.(int))
-		if err != nil {
-			log.Println(err)
-			http.Error(w, "Erreur lors de la récupération des données utilisateur", http.StatusInternalServerError)
-			return
-		}
+		// L'utilisateur est connecté, rediriger vers la page d'accueil
+		http.Redirect(w, r, "/acceuil.html", http.StatusFound)
+		return
+	}
 
-		tmpl := template.Must(template.ParseFiles("../../FRONTEND/html/acceuil.html"))
-		err = tmpl.Execute(w, user)
-		if err != nil {
-			log.Println(err)
-			http.Error(w, "Erreur lors du rendu de la page", http.StatusInternalServerError)
-			return
-		}
-	} else {
-		// L'utilisateur n'est pas connecté, afficher le formulaire de connexion
-		tmpl := template.Must(template.ParseFiles("../../FRONTEND/html/index.html"))
-		err := tmpl.Execute(w, nil)
-		if err != nil {
-			log.Println(err)
-			http.Error(w, "Erreur lors du rendu de la page", http.StatusInternalServerError)
-			return
-		}
+	// L'utilisateur n'est pas connecté, afficher le formulaire de connexion
+	tmpl := template.Must(template.ParseFiles("../../FRONTEND/html/index.html"))
+	err := tmpl.Execute(w, nil)
+	if err != nil {
+		log.Println(err)
+		http.Error(w, "Erreur lors du rendu de la page", http.StatusInternalServerError)
+		return
 	}
 }
 
@@ -95,7 +92,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	http.Redirect(w, r, "../../FRONTEND/html/acceuil.html", http.StatusFound)
+	http.Redirect(w, r, "/", http.StatusFound)
 }
 
 func logoutHandler(w http.ResponseWriter, r *http.Request) {
@@ -134,34 +131,22 @@ func checkPassword(hashedPassword, password string) bool {
 	return err == nil
 }
 
-// func main() {
+func forumHandler(w http.ResponseWriter, r *http.Request) {
+	tmpl, _ := template.ParseFiles("../../FRONTEND/html/index.html")
+	tmpl.Execute(w, nil)
+}
 
-// 	css := http.FileServer(http.Dir("../../FRONTEND/assets"))
-// 	http.Handle("/assets/", http.StripPrefix("/assets/", css))
+func forumAccueil(w http.ResponseWriter, r *http.Request) {
+	tmpl, _ := template.ParseFiles("../../FRONTEND/html/accueil.html")
+	tmpl.Execute(w, nil)
+}
 
-// 	http.HandleFunc("/", forumAccueil)
-// 	http.HandleFunc("/connexion", forumHandler)
-// 	http.HandleFunc("/discussion", forumDiscussion)
-
-// 	http.ListenAndServe(":9000", nil)
-// }
-
-// func forumHandler(w http.ResponseWriter, r *http.Request) {
-// 	tmpl, _ := template.ParseFiles("../../FRONTEND/html/index.html")
-// 	tmpl.Execute(w, nil)
-// }
-
-// func forumAccueil(w http.ResponseWriter, r *http.Request) {
-// 	tmpl, _ := template.ParseFiles("../../FRONTEND/html/accueil.html")
-// 	tmpl.Execute(w, nil)
-// }
-
-// func forumDiscussion(w http.ResponseWriter, r *http.Request) {
-// 	tmpl, err := template.ParseFiles("../../FRONTEND/html/discussion.html")
-// 	tmpl.Execute(w, nil)
-// 	if err != nil {
-// 		log.Println(err)
-// 		http.Error(w, "Erreur de traitement du template", http.StatusInternalServerError)
-// 		return
-// 	}
-// }
+func forumDiscussion(w http.ResponseWriter, r *http.Request) {
+	tmpl, err := template.ParseFiles("../../FRONTEND/html/discussion.html")
+	tmpl.Execute(w, nil)
+	if err != nil {
+		log.Println(err)
+		http.Error(w, "Erreur de traitement du template", http.StatusInternalServerError)
+		return
+	}
+}
