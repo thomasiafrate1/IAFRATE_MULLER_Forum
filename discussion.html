@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discussion</title>
-    <link rel="stylesheet" href="../assets/css/discussion.css">
-    <link rel="stylesheet" href="../assets/css/accueil.css">
-    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="css/discussion.css">
+    <link rel="stylesheet" href="css/acceuil.css">
+    <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
@@ -23,7 +23,7 @@
     <div class="navDroite">
         <a href="/home">Forum</a>
         <a href="/createurs">Créateurs</a>
-        <a href="/connexion">Log In</a>
+        <a href="/login">Log In</a>
     </div>
 
 </div>
@@ -39,9 +39,13 @@
 <div id="discussion"></div>
 
 <div class="coucou">
-        <textarea id="messageInput" placeholder="Tapez votre message ici..." maxlength="255"></textarea>
-    <button id="submitMessageBtn">Envoyer</button>
+    <form method="POST">
+        <input name="messageInput" id="messageInput" placeholder="Tapez votre message ici..." maxlength="255"></input>
+        <input type="submit" value="Envoyer">
+    </form>
 </div>
+
+
 
 <footer>
     <div class="footer">
@@ -65,6 +69,6 @@
 
 
 </body>
-<script src="../assets/js/discussion.js"></script>
-<script src="../assets/js/main.js"></script>
+<script src="discussion.js"></script>
+<script src="main.js"></script>
 </html>

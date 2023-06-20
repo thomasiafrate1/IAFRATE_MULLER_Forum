@@ -74,3 +74,8 @@ body{
     margin: auto;
     margin-bottom: 100px;
 }
+
+a {
+    color: inherit; /* Utilise la couleur du texte parent */
+    text-decoration: none; /* Supprime le soulignement */
+}

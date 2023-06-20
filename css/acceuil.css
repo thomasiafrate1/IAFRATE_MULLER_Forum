@@ -3,15 +3,10 @@
     padding: 0;
 }
 
-
-body{
-    font-family: Arial, Helvetica, sans-serif;
-}
 .navbar{
     justify-content: space-between;
     display: flex;
     height: 70px;
-    background-color: white;
     
 }
 
@@ -106,15 +101,15 @@ body{
 
 .box {
     width: 458px;
-    height: 320px;
+    height: 200px;
     border: 1px solid black;
     margin: 10px;
     padding: 10px;
 }
 .box img {
     margin: auto;
-    width: 400px;
-    max-height: 243px;
+    width: 430px;
+    height: auto;
 }
 
 #container{
@@ -173,10 +168,12 @@ body{
 #popupContenu img {
     margin: auto;
     width: 400px;
-    max-width: 400px;
-    max-height: 300px;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: auto;
-    margin-top: -250px;
 }
 
 .TitreForum{
@@ -216,15 +213,8 @@ body{
 
 .box{
     cursor: pointer;
-    height: 320px;
 }
 
-
-.box img{
-    max-width: 430px;
-    max-height: 243px;
-    margin: 14px;
-}
 .chef{
     width: 300px;
     display: flex;
@@ -278,11 +268,11 @@ body{
 /* PARTIE TRES IMPORTANTE*/
 
 #partieDiscussion{
-    display: block;
+    display: none;
 }
 
 #partieCategorie{
-    display: none;
+    display: block;
 }
 
 #partiePost{
@@ -310,84 +300,30 @@ body{
     margin: 15px;
 }
 
-.cat1, .cat2, .cat3, .cat4, .cat5, .cat6, .cat7, .cat8, .cat9, .cat10, .cat11, .cat12{
+.categories{
+    width: 200px;
+    height: auto;
+    border: 1px solid black;
+    background-color: aquamarine;
+    display: contents;
+}
+
+.category{
     width: 300px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
-    height: 100px;
-    
-}
-
-.cat1{
-    background-image: url("../photo/Capybaras-fiche.jpg");
-    margin: 15px;
-}
-
-.cat2{
-    background-image: url("../photo/Capybaras-fiche.jpg");
-    margin: 15px;
-}
-
-.cat3{
-    background-image: url("../photo/Capybaras-fiche.jpg");
-    margin: 15px;
-}
-
-.cat4{
-    background-image: url("../photo/Capybaras-fiche.jpg");
-    margin: 15px;
-}
-
-.cat5{
-    background-image: url("../photo/Capybaras-fiche.jpg");
-    margin: 15px;
-}
-
-.cat6{
-    background-image: url("../photo/Capybaras-fiche.jpg");
-    margin: 15px;
-}
-
-.cat7{
-    background-image: url("../photo/Capybaras-fiche.jpg");
-    margin: 15px;
-}
-
-.cat8{
-    background-image: url("../photo/Capybaras-fiche.jpg");
-    margin: 15px;
-}
-
-.cat9{
-    background-image: url("../photo/Capybaras-fiche.jpg");
-    margin: 15px;
-}
-
-.cat10{
-    background-image: url("../photo/Capybaras-fiche.jpg");
-    margin: 15px;
-}
-
-.cat11{
-    background-image: url("../photo/Capybaras-fiche.jpg");
-    margin: 15px;
-}
-
-.cat12{
-    background-image: url("../photo/Capybaras-fiche.jpg");
-    margin: 15px;
-}
-
-.textePartiePost{
-    width: 700px;
-    margin: auto;
-    align-items: center;
+    height: 120px;
+    border: 1px solid black;
+    background-color: black;
+    color: aliceblue;
+    margin-left: 28px;
+    margin-bottom: 20px;
     text-align: center;
-    margin-bottom: 150px;
+    font-size: 25px;
+    cursor: pointer;
 }
 
+h2{
+    margin-top: 35px
+}
 
 
 #discussionBtn{
@@ -409,4 +345,9 @@ body{
     background-color: #88888800;
     font-size: 17px;
     cursor: pointer;
+}
+
+a {
+    color: inherit; /* Utilise la couleur du texte parent */
+    text-decoration: none; /* Supprime le soulignement */
 }

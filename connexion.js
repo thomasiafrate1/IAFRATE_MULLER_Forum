@@ -38,15 +38,3 @@ FermerPopupConnexion2.addEventListener('click', function() {
     Vidéo.style.marginTop = '0px';
 });
 
-document.querySelector('.boutonInscription').addEventListener('click', function(event) {
-    var input1 = document.querySelector('.inputInscriptionUsername').value;
-    var input2 = document.querySelector('.inputInscriptionMDP').value;
-    var input3 = document.querySelector('.inputInscriptionEmail').value;
-  
-    if(input1 === '' || input2 === '' || input3 === '') {
-      alert('Veuillez remplir tous les champs.');
-      event.preventDefault();
-    } else {
-      window.location.href = '/accueil';
-    }
-});

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="css/acceuil.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+
+
+    <div class="navbar">
+
+        <div class="navGauche">
+            <p class="logoNavBar">TrapHub</p>
+        </div>
+
+        <div class="navDroite">
+            <a href="/home">Forum</a>
+            <a href="/createurs">Créateurs</a>
+            <a href="/login">Log Out</a>
+        </div>
+
+    </div>
+
+    
+    <div class="partieBasse">
+        <div class="catégorie">
+            <button id="discussionBtn">Discussions</button>
+            <button id="categorieBtn">Catégories</button>
+            <button id="postBtn">Mes posts</button>
+        </div>
+        <div>
+            <input type="text" class="rechercher" placeholder="Rechercher" autocomplete="off">
+            <a href="/login"><button class="boutonLogin">Login/Sign Up</button></a>
+        </div>
+    </div>
+
+
+    <div id="partieDiscussion">
+        <div class="textepartiebasse">
+            <h1 class="titrepartiebasse">Trouvez votre envie.</h1>
+            <p class="soustextepartiebasse">Explorez le forum ci-dessous et trouvez des réponses à toutes vos questions.</p>
+        </div>
+        <div class="post">
+            <button id='btn'>Créer une discussion</button>
+            <div id='container'>
+                {{range .Discussions}}
+                    <a href="/discussion">
+                        <div class="box">
+                            <h2>{{.Name}}</h2>
+                        </div>
+                    </a>
+                {{end}}
+            </div>
+            
+        </div>
+        <div id="popup">
+            <div id="popupContenu">
+                <div class="left">
+                    <form action="/discussion" method="post">
+                        <label for="name_discussion" class="TitreForum">Nom de la discussion :</label>
+                        <input type="text" id="name_discussion" name="name_discussion" required class="InputForum">
+                    
+                        <label for="date_start" class="TitreForum">Date de début :</label>
+                        <input type="datetime-local" id="date_start" name="date_start" required class="InputForum">
+                    
+                        <label for="id_users" class="TitreForum">ID de l'utilisateur :</label>
+                        <input type="hidden" id="id_users" name="id_users" required class="InputForum">
+                    
+                        <button type="submit" id="create-box">Créer la discussion</button>
+                    </form>
+                    
+                    <label for="imgParcourir" class="ImgForum">Image:</label><br>
+                    <input type="file" id="imgParcourir" name="imgParcourir" accept="image/*"><br>
+                    <div class="chef">
+                        
+                        <button id="close-popup">Fermer</button>
+                    </div>
+                </div>
+                <div class="right">
+                    <img id="preview"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="partieCategorie">
+        <div class="textePartieCat">
+            <h1 class="titrepartiebasse">Catégories</h1>
+            <p class="soustextepartiebasse">Explorez le forum ci-dessous et trouvez des réponses à toutes vos questions.</p>
+        </div>
+        <div class="touteCategorie">
+            <div class="categories">
+                {{range .Categories}}
+                    <div class="category">
+                        <h2>{{.Genre}}</h2>
+                    </div>
+                {{end}}
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="partiePost">
+
+    </div>
+    
+
+    <footer>
+        <div class="footer">
+            <div class="row">
+                <h1>TrapHub</h1>
+            </div>
+    
+            <div class="row">
+                <ul>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Career</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    
+
+
+
+</body>
+<script src="accueil.js"></script>
+<script>
+    fetch('/data')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('container');
+            data.forEach(item => {
+                const p = document.createElement('p');
+                p.textContent = `ID: ${item.id}, Name: ${item.name}`;
+                container.appendChild(p);
+            });
+        })
+        .catch(error => console.error(error));
+</script>
+</html>

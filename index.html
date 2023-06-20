@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/css/connexion.css">
+	
+</head>
+<body>
+
+    <video id="background-video" autoplay loop muted>
+        <source src="/assets/traphub2.mp4" type="video/mp4">
+    </video>
+
+    <div id="wsh">
+        <div class="vatefaireenculernemo">
+            <h1 class="titre"><span id="trap">Trap</span><span id="hub">Hub</span></h1>
+            
+            <p class="titredessous">Vivez la musique, créez des souvenirs.</p>
+            <div class="boutons">
+                <button id="boutonSeConnecter">Se connecter</button>
+                <button id="boutonSinscrire">S'inscrire</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="popupSeConnecter">
+        <button id="boutonFermer">X</button>
+        <h1 class="titreConnexion">TrapHub</h1>
+        <div class="lesInputs">
+            <form action="/login" method="POST">
+                <div class="connexionUsername">
+                    <label for="username" class="titreConnexionInput">Nom d'utilisateur:</label>
+                    <input type="text" id="username" class="inputConnexionUsername" name="username" required>
+                </div>
+                <div class="connexionMDP">
+                    <label for="password" class="titreConnexionInput">Mot de passe:</label>
+                    <input type="password" id="password" class="inputConnexionMDP" name="password" required>
+                </div>
+        
+                <button type="submit" class="boutonConnexion">Connexion</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div id="popupSinscrire">
+        <button id="boutonFermer2">X</button>
+        <h1 class="titreInscription">TrapHub</h1>
+        <div class="lesInputsInscription">
+            <form action="/register" method="post">
+                <div class="toutInscription">
+                    <div class="inscriptionUsername">
+                        <label for="username" class="inscriptionTitre">Nom d'utilisateur:</label>
+                        <input type="text" name="username" class="inputInscriptionUsername"><br>
+                    </div>
+                    <div class="inscriptionMDP">
+                        <label for="password" class="inscriptionTitre">Mot de passe:</label>
+                        <input type="password" name="password" class="inputInscriptionUsername"><br>
+                    </div>
+                    <div class="inscriptionMail">
+                        <label for="mail" class="inscriptionTitre">Adresse mail:</label>
+                        <input type="mail" id="mail" name="mail" class="inputInscriptionUsername"><br>
+                    </div>
+                    <div class="inscriptionNom">
+                        <label for="name" class="inscriptionTitre">Nom:</label>
+                        <input type="text" id="name" name="name" class="inputInscriptionUsername"><br>
+                    </div>
+                    <div class="inscriptionPrenom">
+                        <label for="firstname" class="inscriptionTitre">Prénom:</label>
+                        <input type="text" id="firstname" name="firstname" class="inputInscriptionUsername"><br>
+                    </div>
+                    <div class="inscriptionSexe">
+                        <label for="gender" class="inscriptionTitreSexe">Sexe:</label>
+                        <select id="register_gender" name="gender" >
+                            <option value="male">Homme</option>
+                            <option value="female">Femme</option>
+                            <option value="other">Autre</option>
+                        </select><br>
+                    </div>
+                    <div class="inscriptionDate">
+                        <label for="birthdate" class="inscriptionTitreDate">Date de naissance:</label>
+                        <input type="date" id="birthdate" name="birthdate"><br>
+                    </div>
+                    
+                    <input type="submit" value="S'inscrire" class="boutonInscription">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+	<script src="connexion.js"></script>
+</html>
