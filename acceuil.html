@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
-    <link rel="stylesheet" href="css/acceuil.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="FRONTEND/assets/css/acceuil.css">
+    <link rel="stylesheet" href="FRONTEND/assets/css/footer.css">
 </head>
 <body>
 
@@ -67,7 +67,7 @@
                         <label for="date_start" class="TitreForum">Date de début :</label>
                         <input type="datetime-local" id="date_start" name="date_start" required class="InputForum">
                     
-                        <label for="id_users" class="TitreForum">ID de l'utilisateur :</label>
+                       
                         <input type="hidden" id="id_users" name="id_users" required class="InputForum">
                     
                         <button type="submit" id="create-box">Créer la discussion</button>
@@ -132,7 +132,7 @@
 
 
 </body>
-<script src="accueil.js"></script>
+<script src="FRONTEND/assets/script/accueil.js"></script>
 <script>
     fetch('/data')
         .then(response => response.json())

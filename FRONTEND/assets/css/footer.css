@@ -61,6 +61,6 @@ body{
 }
 
 a {
-    color: inherit; /* Utilise la couleur du texte parent */
-    text-decoration: none; /* Supprime le soulignement */
+    color: inherit; 
+    text-decoration: none; 
 }

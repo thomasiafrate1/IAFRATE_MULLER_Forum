@@ -25,6 +25,7 @@ type User struct {
 var db *sql.DB
 
 func main() {
+
 	var err error
 	db, err = sql.Open("mysql", "root:@tcp(localhost:3306)/muller-iafrate-forum")
 	if err != nil {
@@ -47,24 +48,63 @@ func main() {
 }
 
 func handler(mux *http.ServeMux) {
-	mux.HandleFunc("/css/main.css", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("FRONTEND/assets/css/main.css", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/css")
 		http.ServeFile(w, r, "main.css")
 	})
-
-	mux.HandleFunc("/css/connexion.css", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("FRONTEND/assets/css/acceuil.css", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/css")
+		http.ServeFile(w, r, "acceuil.css")
+	})
+	mux.HandleFunc("FRONTEND/assets/css/créateurs.css", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/css")
+		http.ServeFile(w, r, "créateurs.css")
+	})
+	mux.HandleFunc("FRONTEND/assets/css/discussion.css", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/css")
+		http.ServeFile(w, r, "discussion.css")
+	})
+	mux.HandleFunc("FRONTEND/assets/css/footer.css", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/css")
+		http.ServeFile(w, r, "footer.css")
+	})
+	mux.HandleFunc("FRONTEND/assets/css/connexion.css", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/css")
 		http.ServeFile(w, r, "connexion.css")
 	})
 
-	mux.HandleFunc("/connexion.js", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("FRONTEND/assets/script/connexion.js", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/javascript")
 		http.ServeFile(w, r, "connexion.js")
+	})
+	mux.HandleFunc("FRONTEND/assets/script/accueil.js", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/javascript")
+		http.ServeFile(w, r, "accueil.js")
+	})
+	mux.HandleFunc("FRONTEND/assets/script/discussion.js", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/javascript")
+		http.ServeFile(w, r, "discussion.js")
+	})
+
+	mux.HandleFunc("FRONTEND/assets/img/nemo.JPG", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "image/jpeg")
+		http.ServeFile(w, r, "nemo.JPG")
+	})
+	mux.HandleFunc("FRONTEND/assets/img/profil.png", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "image/jpeg")
+		http.ServeFile(w, r, "profil.png")
+	})
+	mux.HandleFunc("FRONTEND/assets/img/thomas.jpg", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "image/jpeg")
+		http.ServeFile(w, r, "thomas.jpg")
+	})
+	mux.HandleFunc("FRONTEND/assets/img/traphub2.mp4", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "video/mp4")
+		http.ServeFile(w, r, "trapub2.mp4")
 	})
 }
 
 func registerHandler(w http.ResponseWriter, r *http.Request) {
-	// Récupérer les informations du formulaire
 	username := r.FormValue("username")
 	password := r.FormValue("password")
 	email := r.FormValue("email")
@@ -73,22 +113,17 @@ func registerHandler(w http.ResponseWriter, r *http.Request) {
 	first_name := r.FormValue("first_name")
 	birth_date := r.FormValue("birth_date")
 
-	// Vérifier si l'utilisateur existe déjà dans la base de données
 	if userExists(username) {
 		http.Error(w, "Nom d'utilisateur déjà utilisé", http.StatusBadRequest)
 		return
 	}
 
-	// Insérer l'utilisateur dans la base de données
 	err := insertUser(username, email, password, sexe, name, first_name, birth_date)
 	if err != nil {
 		log.Println("Erreur lors de l'enregistrement:", err)
 		http.Error(w, "Erreur lors de l'enregistrement", http.StatusInternalServerError)
 		return
 	}
-
-	// L'utilisateur est enregistré avec succès
-	// Vous pouvez effectuer d'autres actions ici, par exemple, définir une session ou rediriger vers une page d'accueil
 
 	http.Redirect(w, r, "/login", http.StatusFound)
 }
@@ -113,18 +148,16 @@ func loginRegisterFormHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func loginHandler(w http.ResponseWriter, r *http.Request) {
-	// Récupérer les informations du formulaire
+
 	username := r.FormValue("username")
 	password := r.FormValue("password")
 
-	// Connexion à la base de données
 	db, err := sql.Open("mysql", "root:@tcp(localhost:3306)/muller-iafrate-forum")
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer db.Close()
 
-	// Exécuter une requête pour vérifier les informations de connexion
 	row := db.QueryRow("SELECT id_users FROM users WHERE username=? AND password=?", username, password)
 	var userID int
 	err = row.Scan(&userID)
@@ -134,26 +167,23 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// L'utilisateur est connecté avec succès
-	// Définir un cookie de session avec l'`id_users`
 	http.SetCookie(w, &http.Cookie{
 		Name:  sessionCookieName,
-		Value: strconv.Itoa(userID), // convert userID to string
+		Value: strconv.Itoa(userID),
 	})
 
 	http.Redirect(w, r, "/home", http.StatusFound)
 }
 
 func loginFormHandler(w http.ResponseWriter, r *http.Request) {
-	// Vérifiez la méthode de la requête
+
 	if r.Method != http.MethodPost {
-		// Affichez le formulaire de connexion
+
 		tmpl := template.Must(template.ParseFiles("index.html"))
 		tmpl.Execute(w, nil)
 		return
 	}
 
-	// Le formulaire a été soumis, appelez la fonction de gestion de la soumission du formulaire
 	loginHandler(w, r)
 }
 
@@ -214,25 +244,22 @@ func getCategories() ([]Category, error) {
 	return categories, nil
 }
 func createDiscussionHandler(w http.ResponseWriter, r *http.Request) {
-	// Vérifiez la méthode de la requête
+
 	if r.Method != http.MethodPost {
-		// Si ce n'est pas une requête POST, renvoyez une erreur 405 (Méthode non autorisée)
+
 		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
 		return
 	}
 
-	// Récupérez le cookie de la session
 	cookie, err := r.Cookie(sessionCookieName)
 	if err != nil {
 		http.Error(w, "Vous devez être connecté pour créer une discussion", http.StatusUnauthorized)
 		return
 	}
 
-	// Récupérez les valeurs du formulaire
 	nameDiscussion := r.FormValue("name_discussion")
 	dateStart := r.FormValue("date_start")
 
-	// Insérez les données dans la base de données
 	_, err = db.Exec("INSERT INTO discussion (name_discussion, date_start, id_users) VALUES (?, ?, ?)", nameDiscussion, dateStart, cookie.Value)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -240,19 +267,17 @@ func createDiscussionHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	tmpl1 := template.Must(template.ParseFiles("discussion.html"))
 	tmpl1.Execute(w, nil)
-	// Si tout va bien, redirigez vers la page discussion.html
+
 	http.Redirect(w, r, "/discussion", http.StatusSeeOther)
 }
 
 func saveMessageHandler(w http.ResponseWriter, r *http.Request) {
-	// Vérifiez la méthode de la requête
+
 	if r.Method != http.MethodPost {
-		// Si ce n'est pas une requête POST, renvoyez une erreur 405 (Méthode non autorisée)
+
 		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
 		return
 	}
-
-	// Récupérez le cookie de la session
 	cookie, err := r.Cookie(sessionCookieName)
 	if err != nil {
 		http.Error(w, "Vous devez être connecté pour poster un message", http.StatusUnauthorized)
@@ -261,10 +286,8 @@ func saveMessageHandler(w http.ResponseWriter, r *http.Request) {
 
 	log.Println("ID utilisateur récupéré à partir du cookie de session :", cookie.Value)
 
-	// Récupérez la valeur du formulaire
 	content := r.FormValue("messageInput")
 
-	// Insérez les données dans la base de données
 	result, err := db.Exec("INSERT INTO message (contained, id_users) VALUES (?, ?)", content, cookie.Value)
 	if err != nil {
 		log.Println("Erreur lors de l'insertion du message dans la base de données :", err)
@@ -276,26 +299,18 @@ func saveMessageHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func someHandler(w http.ResponseWriter, r *http.Request) {
-	// Récupérer le cookie de session
 	sessionCookie, err := r.Cookie(sessionCookieName)
 	if err != nil {
-		// Pas de cookie de session, l'utilisateur n'est pas connecté
 		http.Error(w, "Non connecté", http.StatusUnauthorized)
 		return
 	}
 
-	// Récupérer l'`id_users` du cookie de session
 	idUsers, err := strconv.Atoi(sessionCookie.Value)
 	if err != nil {
-		// Valeur de cookie invalide, traiter l'erreur
 		http.Error(w, "Session invalide", http.StatusInternalServerError)
 		return
 	}
 
-	// À ce stade, vous avez l'ID de l'utilisateur à partir du cookie de session.
-	// Vous pouvez l'utiliser pour récupérer d'autres informations sur l'utilisateur dans la base de données.
-
-	// Exécuter une requête pour obtenir les informations de l'utilisateur
 	row := db.QueryRow("SELECT username, email FROM users WHERE id_users=?", idUsers)
 	var username, email string
 	err = row.Scan(&username, &email)
@@ -305,7 +320,6 @@ func someHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Créez un struct pour détenir les informations de l'utilisateur
 	userInfo := struct {
 		Username string
 		Email    string
@@ -314,7 +328,6 @@ func someHandler(w http.ResponseWriter, r *http.Request) {
 		Email:    email,
 	}
 
-	// Afficher les informations de l'utilisateur (par exemple, dans une page HTML)
 	tmpl := template.Must(template.ParseFiles("userinfo.html"))
 	tmpl.Execute(w, userInfo)
 }
